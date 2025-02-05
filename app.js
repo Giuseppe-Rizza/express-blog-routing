@@ -19,6 +19,14 @@ app.get("/", (req, res) => {
     res.send("Server del mio blog");
 });
 
+// Definisco la rotta /bacheca ed importo l'array fornito nel file posts.js
+app.get("/bacheca", (req, res) => {
+    const posts = require("./posts");
+
+    // Ritorno l'array di post in formato Json
+    res.json(posts);
+});
+
 // Avvio il server, mettendolo in ascolto sulla porta indicata
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
