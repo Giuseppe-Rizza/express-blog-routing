@@ -30,6 +30,7 @@ app.get("/bacheca", (req, res) => {
     res.json(posts);
 });
 
+// Indico l'esesitenza di nuove rotte specificando il prefisso (/posts, che non devo aggiungerlo nella rotta dall'altra parte in posts.js) e il router (postsRouter)
 app.use("/posts", postsRouter);
 
 // Avvio il server, mettendolo in ascolto sulla porta indicata
