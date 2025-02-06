@@ -31,6 +31,7 @@ app.get("/bacheca", (req, res) => {
 });
 
 // Indico l'esesitenza di nuove rotte specificando il prefisso (/posts, che non devo aggiungerlo nella rotta dall'altra parte in posts.js) e il router (postsRouter)
+// N.B.: la funzione USE ha due argomenti: il PATH BASE delle rotte (che verrà aggiunto come prefisso ad ogni rotta creata tramite il router) e l'ISTANZA DEL ROUTER da usare in questo specifico punto
 app.use("/posts", postsRouter);
 
 // Avvio il server, mettendolo in ascolto sulla porta indicata
