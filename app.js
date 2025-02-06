@@ -12,6 +12,7 @@ const port = 3000;
 
 // Importo il router
 const postsRouter = require("./routers/posts");
+const posts = require("./array_posts");
 
 // Definisco l'uso di una cartella per i file statici
 app.use(express.static("public"));

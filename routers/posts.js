@@ -36,36 +36,42 @@ const express = require("express");
 // N.B.: IN QUESTO CASO NON VA AD ESEGUIRE LA MEGA-FUNZIONE EXPRESS E QUINDI NON CI RITORNERÀ TUTTO L'OGGETTONE DI EXPRESS, MA CI RITORNERÀ SOLO IL METODO ROUTER (OSSIA QUELLA PARTE CHE CI INTERESSA USARE NEL ROUTER PER FARLO FUNZIONARE)
 const router = express.Router();
 
+const listPosts = require("../array_posts");
+
 
 // index
 // Nella URI rimuovo il nome della risorsa (/posts), perché dal momento che è il router specifico dell'entità post è implicito il fatto che vada a finire qua (diamo per scontato che siamo già in un endpoint che va ad includere /posts e quindi andiamo a scrivere solo quello che c'è dopo essendo nel router dei posts)
 router.get("/", function(req, res) {
-    res.send("Lista dei post");
+    // (Bonus 1)
+    // Se l'utente finisce sull'endpoint / gli ritorna la lista dei post in formato json
+    res.json(posts);
     });
 
 // show
 router.get("/:id", function(req, res) {
-res.send("Dettagli dei post " + req.params.id);
+    // (Bonus 1)
+    // Se l'utente finisce sull'endpoint /:id gli ritorna un singolo post in formato json
+    res.json(posts[req.params.id]);
 });
 
 // store
 router.post("/", function(req, res) {
-res.send("Creazione nuovo post");
+    res.send("Creazione nuovo post");
 });
 
 // update
 router.put("/:id", function(req, res) {
-res.send("Modifica integrale del post " + req.params.id);
+    res.send("Modifica integrale del post " + req.params.id);
 });
 
 // modify
 router.patch("/:id", function(req, res) {
-res.send("Modifica parziale del post " + req.params.id);
+    res.send("Modifica parziale del post " + req.params.id);
 });
 
 // destroy
 router.delete("/:id", function(req, res) {
-res.send("Cancellazione del post " + req.params.id);
+    res.send("Cancellazione del post " + req.params.id);
 });
 
 // Esporto l'istanza di router
