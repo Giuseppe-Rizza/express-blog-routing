@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 // Definisco la rotta /bacheca ed importo l'array fornito nel file posts.js
 app.get("/bacheca", (req, res) => {
-    const posts = require("./posts");
+    const posts = require("./array_posts");
 
     // Ritorno l'array di post in formato Json
     res.json(posts);
