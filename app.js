@@ -10,6 +10,9 @@ const app = express();
 // Do una porta
 const port = 3000;
 
+// Importo il router
+const postsRouter = require("./routers/posts");
+
 // Definisco l'uso di una cartella per i file statici
 app.use(express.static("public"));
 
@@ -26,6 +29,8 @@ app.get("/bacheca", (req, res) => {
     // Ritorno l'array di post in formato Json
     res.json(posts);
 });
+
+app.use("/posts", postsRouter);
 
 // Avvio il server, mettendolo in ascolto sulla porta indicata
 app.listen(port, () => {
